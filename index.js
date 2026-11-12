@@ -56,6 +56,18 @@ app.delete("/delete-recruiter-job/:id", async (req, res) => {
   res.send(result)
 });
 
+
+app.get('/get-single-job/:id',async (req,res ) => {
+  const id = req.params.id
+  const query = {_id: new ObjectId(id)}
+  const result = await jobs.findOne(query)
+  res.send(result)
+}
+)
+
+
+
+
 app.listen(PORT, () => {
   console.log(`Server running on this ${PORT}`);
 });
